@@ -2,11 +2,11 @@
 
 
 
-export const Home = () => {
+export const Home = (props) => {
 
     return(
 
-        <div><h1>This is home page</h1></div>
+        <div><h1> home page UserName is {props.UserName}</h1></div>
     )
     
 }

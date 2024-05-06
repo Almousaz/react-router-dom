@@ -6,11 +6,17 @@ import { About } from './Pages/About';
 import { Contact } from './Pages/Contact';
 import { Nav } from './Pages/nav';
 import {Profile} from './Pages/Profile'
+import { useState } from 'react';
 
 
 
 
 function App() {
+
+  const [userName , setUserName] = useState("ali webs")
+
+
+
   return (
     <div className="App">
 
@@ -23,10 +29,10 @@ function App() {
 
         <Routes>
 
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home UserName={userName} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile/:name/:id" element={<Profile />} />
+          <Route path="/profile" element={<Profile  userName={userName} setUserName={setUserName} />} />
           <Route path="/*" element={<div><h1>Not Found</h1></div>} />
 
           
