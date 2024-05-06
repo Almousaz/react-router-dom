@@ -6,7 +6,11 @@ import { About } from './Pages/About';
 import { Contact } from './Pages/Contact';
 import { Nav } from './Pages/nav';
 import {Profile} from './Pages/Profile'
-import { useState } from 'react';
+import { useState , createContext } from 'react';
+
+
+export const ProfileContext = createContext();
+
 
 
 
@@ -20,6 +24,8 @@ function App() {
   return (
     <div className="App">
 
+      <ProfileContext.Provider value={{userName ,setUserName}} >
+
       <Router>
 
         <div>Ali Website</div>
@@ -29,10 +35,10 @@ function App() {
 
         <Routes>
 
-          <Route path="/" element={<Home UserName={userName} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile  userName={userName} setUserName={setUserName} />} />
+          <Route path="/profile" element={<Profile  />} />
           <Route path="/*" element={<div><h1>Not Found</h1></div>} />
 
           
@@ -45,6 +51,8 @@ function App() {
 
 
       </Router>
+
+      </ProfileContext.Provider>
       
 
 

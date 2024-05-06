@@ -1,12 +1,18 @@
 
+import { useContext } from "react"
+import { ProfileContext } from "../App"
 
 
 
-export const Home = (props) => {
+
+export const Home = () => {
+
+    const  {userName} = useContext(ProfileContext)
 
     return(
 
-        <div><h1> home page UserName is {props.UserName}</h1></div>
+        <div><h1> home page UserName is {userName}</h1></div>
     )
     
 }
+
