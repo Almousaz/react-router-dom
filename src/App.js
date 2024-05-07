@@ -7,15 +7,22 @@ import { Contact } from './Pages/Contact';
 import { Nav } from './Pages/nav';
 import {Profile} from './Pages/Profile'
 import { useState , createContext } from 'react';
+import {QueryClient , QueryClientProvider} from 'react-query'
+
 
 
 export const ProfileContext = createContext();
 
-
+//  https://catfact.ninja/fact
 
 
 
 function App() {
+
+  const client = new QueryClient({defaultOptions :{
+    queries : {refetchOnWindowFocus : false},
+    mutations : {}
+  }}) 
 
   const [userName , setUserName] = useState("ali webs")
 
@@ -23,6 +30,8 @@ function App() {
 
   return (
     <div className="App">
+
+      <QueryClientProvider client={client}>
 
       <ProfileContext.Provider value={{userName ,setUserName}} >
 
@@ -53,6 +62,8 @@ function App() {
       </Router>
 
       </ProfileContext.Provider>
+
+      </QueryClientProvider>
       
 
 
